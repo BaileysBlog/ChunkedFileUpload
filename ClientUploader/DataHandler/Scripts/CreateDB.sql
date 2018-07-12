@@ -1,7 +1,13 @@
 ﻿USE [master]
 
-/****** Object:  Database [FileUploader]    Script Date: 7/12/2018 5:57:21 PM ******/
+/****** Object:  Database [FileUploader]    Script Date: 7/12/2018 6:28:16 PM ******/
 CREATE DATABASE [FileUploader]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'FileUploader', FILENAME = N'D:\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\FileUploader.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'FileUploader_log', FILENAME = N'D:\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\FileUploader_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+
 ALTER DATABASE [FileUploader] SET COMPATIBILITY_LEVEL = 130
 
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
@@ -91,7 +97,14 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES =
 
 USE [FileUploader]
 
-/****** Object:  Table [dbo].[Files]    Script Date: 7/12/2018 5:57:21 PM ******/
+/****** Object:  User [NT AUTHORITY\NETWORK SERVICE]    Script Date: 7/12/2018 6:28:16 PM ******/
+CREATE USER [NT AUTHORITY\NETWORK SERVICE] FOR LOGIN [NT AUTHORITY\NETWORK SERVICE] WITH DEFAULT_SCHEMA=[dbo]
+
+ALTER ROLE [db_datareader] ADD MEMBER [NT AUTHORITY\NETWORK SERVICE]
+
+ALTER ROLE [db_datawriter] ADD MEMBER [NT AUTHORITY\NETWORK SERVICE]
+
+/****** Object:  Table [dbo].[Files]    Script Date: 7/12/2018 6:28:16 PM ******/
 SET ANSI_NULLS ON
 
 SET QUOTED_IDENTIFIER ON
@@ -109,7 +122,7 @@ CREATE TABLE [dbo].[Files](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
-/****** Object:  Table [dbo].[TempFiles]    Script Date: 7/12/2018 5:57:21 PM ******/
+/****** Object:  Table [dbo].[TempFiles]    Script Date: 7/12/2018 6:28:17 PM ******/
 SET ANSI_NULLS ON
 
 SET QUOTED_IDENTIFIER ON
