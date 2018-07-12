@@ -13,6 +13,7 @@ namespace DataHandler.Models
         public long MaxChunkSize { get; private set; }
 
         private long ChunkTotal = 0;
+        private string FileId;
 
         public List<FileProgress> ProgressEvents = new List<FileProgress>();
         public long BytesUploaded
@@ -98,7 +99,7 @@ namespace DataHandler.Models
                             await chunk.BufferBytesAsync(fs, MaxChunkSize);
                         }
 
-                        var result = await chunk.UploadChunk();
+                        var result = await chunk.UploadChunk(FileId);
 
                         var executionTime = DateTime.Now.Subtract(startTime);
 
@@ -106,6 +107,11 @@ namespace DataHandler.Models
                     }
                 }
             });
+        }
+
+        public async Task<bool> GetFileId()
+        {
+            return null;
         }
     }
 }

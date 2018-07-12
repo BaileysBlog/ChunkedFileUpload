@@ -44,7 +44,7 @@ namespace DataHandler.Models
             return Chunk.LongLength;
         }
 
-        public async Task<bool> UploadChunk()
+        public async Task<bool> UploadChunk(string FileId)
         {
             await Task.Delay(TimeSpan.FromMilliseconds(new Random().Next(1, 251)));
             return true;
