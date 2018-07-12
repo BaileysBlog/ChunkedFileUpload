@@ -1,9 +1,9 @@
-﻿using ClientUploader.Models;
+﻿using DataHandler.Models;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace ClientUploader
+namespace DataHandler
 {
     class Program
     {

@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientUploader.Models
+namespace DataHandler.Models
 {
     public class FileChunk
     {

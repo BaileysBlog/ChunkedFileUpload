@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace ClientUploader.Models
+namespace DataHandler.Models
 {
     public class FileUpload
     {

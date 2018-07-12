@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClientUploader.Models
+namespace DataHandler.Models
 {
     public class FileProgress
     {
